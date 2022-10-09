@@ -64,8 +64,8 @@ button {
 /* light */
 .light {
     position: absolute;
-    width: 177.13px;
-    height: 42px;
+    /* width: 177.13px; */
+    height: 60px;
     left: 8.3%;
     top: 16px;
 }
@@ -604,4 +604,15 @@ button {
     font-weight: 400;
     font-size: 12px;
     line-height: 14px;
+}
+
+.beian {
+    color: #9B99A4;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+}
+
+.beian a:link, .beian a:visited {
+    color: #9B99A4;
 }
