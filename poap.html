@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="One Stop NFT Infrastructure & Service">
+        <meta content="width=device-width, initial-scale=1.0 maximum-scale=1.0 user-scalable=0" name="viewport">
+        <title>NFTRainbow - POAP</title>
+        <link rel="stylesheet" type="text/css" href="./resources/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="./resources/css/poap.css">
+        <script type="text/javascript" src="./resources/scripts/jquery.min.js"></script>
+        <script type="text/javascript" src="./resources/scripts/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <div id="loading" class="d-flex justify-content-center" style="margin-top:100px">
+            <div class="spinner-grow text-primary" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+        <div id="app" class="d-none">
+            <div>
+                <img src="https://dev.nftrainbow.xyz/assets/uploads/0j5srel30hw01.png" id='img'/>
+            </div>
+            <div id="content">
+                <dt>名称</dt>
+                <dd id="p-name">POAP1</dd>
+                <dt>简介</dt>
+                <dd id="p-intro">活动 POAP </dd>
+                <dt>发行网络</dt>
+                <dd>树图公有链</dd>
+                <dt>合约地址</dt>
+                <dd id="p-contract"></dd>
+                <div id="claim-info" class="d-none">
+                    <dt>POAP ID</dt>
+                    <dd id="p-nftid"></dd>
+                    <dt>交易哈希</dt>
+                    <dd id="p-hash"></dd>
+                </div>
+                
+                <div id="u-info" class='d-none'>
+                    <dt>钱包地址</dt>
+                    <dd id="p-address"></dd>
+                </div>
+            </div>
+            <div id="claim-btn">
+                <button type="button" class="btn btn-primary">领取</button>
+            </div>
+            <div id='footer'>
+                <span>Power By NFTRainbow</span>
+            </div>
+        </div>
+
+        <script type="text/javascript" src="./resources/scripts/cfxAddr.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@idealight-labs/anyweb-js-sdk@1.3.4/dist/anyweb-js-sdk.umd.min.js"></script>
+        <script type="text/javascript">
+            // anyweb SDK init
+            let anywebLoaded = false;
+
+            const provider = new window.AnyWeb.Provider({
+                // logger: console, // SDK 的 logger, 设置为 null 可关闭 SDK 的日志
+                appId: '2889ac44-fd99-4867-a33a-282273b4963b'
+            });
+
+            provider.on('ready', async () => {
+                anywebLoaded = true;
+            });
+        </script>
+
+        <script type="text/javascript" src="./resources/scripts/poap.js"></script>
+    </body>
+</html>

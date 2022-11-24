@@ -1,0 +1,37 @@
+#app {
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #f1f3f9;
+}
+
+#app #img {
+    width: 100%;
+    height: auto;
+}
+
+#app #content {
+    padding: 20px;
+}
+
+#app #content dd {
+    line-break: anywhere;
+}
+
+#app #content dt {
+    color: rgb(116, 121, 140);
+}
+
+#app #claim-btn button {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+#app #footer {
+    padding: 20px;
+    text-align: center;
+    color: gray;
+    font-size: 12px;
+}
