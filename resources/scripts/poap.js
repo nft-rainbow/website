@@ -31,6 +31,7 @@ $(function() {
             getPoapClaimInfo(id, userAddress).then(result => {
                 renderClaimInfo(result);
                 $('#claim-btn').addClass('d-none');
+                $('#view-btn').removeClass('d-none');
             });
         }
     }).catch(err => {

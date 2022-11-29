@@ -22,7 +22,7 @@
     color: rgb(116, 121, 140);
 }
 
-#app #claim-btn button {
+#app #claim-btn button, #app #view-btn a {
     width: 80%;
     margin-left: auto;
     margin-right: auto;
