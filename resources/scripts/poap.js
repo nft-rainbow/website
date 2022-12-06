@@ -52,8 +52,12 @@ function renderPoapInfo(poap) {
 
 function renderClaimInfo(info) {
     const { token_id, hash } = info;
-    $('#p-hash').html(renderLink(hash, scanTxUrl(hash, netId)));
-    $('#p-nftid').html(renderLink(token_id, scanNFTUrl(info.contract, token_id, netId)));
+    if (hash) {
+        $('#p-hash').html(renderLink(hash, scanTxUrl(hash, netId)));
+        $('#p-nftid').html(renderLink(token_id, scanNFTUrl(info.contract, token_id, netId)));
+    } else {
+        $('#p-hash').html('<span>领取中，请稍后刷新</span>');
+    }
     $('#claim-info').removeClass('d-none');
 }
 
