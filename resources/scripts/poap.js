@@ -14,7 +14,7 @@ if (!id) {
 }
 
 $(function() {
-    console.log('Rainbow POAP');
+    // console.log('Rainbow POAP');
 
     // Get poap basic info
     getPoap(id).then(result => {
@@ -125,7 +125,7 @@ async function claimHandler(e) {
     }
     await claimPoap(id, userAddress);
     alert('领取成功，请稍后刷新页面查看');
-    location.reload();
+    $('#claim-btn').addClass('d-none');
 }
 
 function normalizeAddr(userAddr, netId) {
