@@ -125,6 +125,7 @@ async function claimHandler(e) {
     }
     await claimPoap(id, userAddress);
     alert('领取成功，请稍后刷新页面查看');
+    location.reload();
 }
 
 function normalizeAddr(userAddr, netId) {
