@@ -31,7 +31,6 @@ $(function() {
             getPoapClaimInfo(id, userAddress).then(result => {
                 renderClaimInfo(result);
                 $('#claim-btn').addClass('d-none');
-                $('#view-btn').removeClass('d-none');
             });
         }
     }).catch(err => {
@@ -43,22 +42,34 @@ $(function() {
 });
 
 function renderPoapInfo(poap) {
-    const { title, intro, image_uri, contract } = poap;
+    const { title, intro, image_uri, contract, next_id, total_amount } = poap;
     $('#img').attr('src', image_uri);
     $('#p-name').text(title);
     $('#p-intro').text(intro);
     $('#p-contract').html(renderLink(contract, scanAddressUrl(contract, netId)));
+
+    // POAP has been claimed out
+    if (total_amount > 0 && next_id >= total_amount) {
+        $('#p-status').html('<span>POAP已发放完毕</span>');
+        $('#claim-error').removeClass('d-none');
+        $('#claim-btn').addClass('d-none');
+    }
 }
 
 function renderClaimInfo(info) {
-    const { token_id, hash } = info;
+    const { token_id, hash, status } = info;
     if (hash) {
         $('#p-hash').html(renderLink(hash, scanTxUrl(hash, netId)));
         $('#p-nftid').html(renderLink(token_id, scanNFTUrl(info.contract, token_id, netId)));
+        $('#claim-info').removeClass('d-none');
+        $('#view-btn').removeClass('d-none');
+    } else if(status === 2) {
+        $('#p-status').html('<span>领取失败</span>');
+        $('#claim-error').removeClass('d-none');
     } else {
-        $('#p-hash').html('<span>领取中，请稍后刷新</span>');
+        $('#p-status').html('<span>领取中，请稍后刷新</span>');
+        $('#claim-error').removeClass('d-none');
     }
-    $('#claim-info').removeClass('d-none');
 }
 
 function renderUserAddress(address) {
