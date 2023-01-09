@@ -116,7 +116,7 @@ function claimPoap(id, address) {
 }
 
 async function getAccount() {
-    if (!anywebLoaded) return alert('请稍后重试');
+    if (!anywebLoaded) return alert('请刷新页面重试');
     let accounts = await provider.request({
         method: 'cfx_accounts',
         params: [{
