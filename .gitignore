@@ -5,6 +5,7 @@ lib
 bundles
 es
 .next
+out
 .cache
 .DS_Store
 .vscode/
