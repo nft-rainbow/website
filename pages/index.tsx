@@ -36,10 +36,34 @@ function Menu() {
     );
 }
 
+function Footer() {
+    return (
+        <div className="h-[80px] min-w-[1200px] px-[120px] flex flex-row justify-between text-base font-normal text-[#473E6B]">
+            <div className="flex flex-row items-center">
+                <a href="/" className="flex flex-row items-center text-[#010101]">
+                    <Image width={28} height={28} src="/images/logo.svg" alt="NFTRainbow" />
+                    <div className="ml-1 font-semibold">NFTRainbow</div>
+                </a>
+                <a href="/" className="ml-12">
+                    文档
+                </a>
+                <a href="/" className="flex flex-row items-center ml-8">
+                    介绍
+                </a>
+                <a href="/" className="ml-8">
+                    获取 API Key
+                </a>
+            </div>
+            <div className="flex flex-row items-center text-xs">Copyright (c) 2022 NFTRainbow. All rights reserved.</div>
+        </div>
+    );
+}
+
 export default function Index() {
     return (
         <div className="flex flex-col">
             <Menu />
+            <Footer />
         </div>
     );
 }
