@@ -8,7 +8,7 @@
     "build": "next build && next export",
     "start": "next start",
     "test": "serve ./out",
-    "format": "prettier --write '**/*.ts'  '**/*.tsx'",
+    "format": "prettier --write '**/*.{js,jsx,ts,tsx}'",
     "prettier": "pretty-quick --staged"
   },
   "keywords": [],
