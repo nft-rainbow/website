@@ -3,3 +3,5 @@
 *.css
 *.md
 *.svg
+*.png
+.prettierignore
