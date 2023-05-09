@@ -2,7 +2,7 @@ import Image from 'next/image';
 import { useState } from 'react';
 function Menu() {
     return (
-        <div className="relative z-[11] h-[74px] min-w-[1200px] px-[120px] flex flex-row justify-between text-base font-normal text-[#05001F]">
+        <div className="relative z-[11] mx-auto w-[1200px] h-[74px] flex flex-row justify-between text-base font-normal text-[#05001F]">
             <div className="flex flex-row items-center">
                 <a href="/" className="flex flex-row items-center text-[#010101]">
                     <Image width={28} height={28} src="/images/logo.svg" alt="NFTRainbow" />
@@ -39,8 +39,8 @@ function Menu() {
 
 function Footer() {
     return (
-        <div className="h-[80px] min-w-[1200px] px-[120px] flex flex-row justify-between text-base font-normal text-[#473E6B]">
-            <div className="flex flex-row items-center">
+        <div className="mx-auto h-[80px] w-[1200px] flex flex-row justify-between text-base font-normal text-[#473E6B]">
+            <div className=" flex flex-row items-center">
                 <a href="/" className="flex flex-row items-center text-[#010101]">
                     <Image width={28} height={28} src="/images/logo.svg" alt="NFTRainbow" />
                     <div className="ml-1 font-semibold">NFTRainbow</div>
@@ -111,7 +111,7 @@ function Banner() {
                             backgroundRepeat: 'no-repeat',
                         }}
                         className={`transition-all duration-300 relative flex-shrink-0 z-10 w-full h-full flex flex-col items-center bg-[#FFFDF9]`}>
-                        <div className="relative z-1 w-[1440px] pt-[210px]">
+                        <div className="relative z-1 w-[1200px] pt-[210px]">
                             <div className="w-[600px] text-5xl font-semibold text-[#473E6B]">{title}</div>
                             <div className="mt-8 w-[600px] font-normal text-[#696679]">{content}</div>
                             <button className="mt-[100px] px-8 py-4 text-xl flex flex-row rounded-full text-white bg-[#6953EF]">
@@ -122,7 +122,7 @@ function Banner() {
                     </div>
                 );
             })}
-            <div className=" absolute z-10 left-[120px] bottom-[108px] flex flex-row items-center gap-[10px]">
+            <div className=" absolute z-10 left-1/2 bottom-[108px] -translate-x-1/2 w-[1200px] flex flex-row items-center gap-[10px]">
                 {bannerData.map((_, index) => {
                     return (
                         <Radiu
@@ -139,11 +139,87 @@ function Banner() {
     );
 }
 
+const AppModuleData = [
+    {
+        title: 'POAP',
+    },
+    {
+        title: 'SBT',
+    },
+    {
+        title: 'NFT',
+    },
+    {
+        title: '盲盒',
+    },
+    {
+        title: '白名单\r\n空投',
+    },
+    {
+        title: '忠诚度策划',
+    },
+];
+
+function AppModule() {
+    const [moduleIndex, setIndex] = useState(0);
+    return (
+        <div className="mx-auto w-[1200px] pt-18 flex flex-row justify-between">
+            <div className=" text-[28px] font-semibold text-[#473E6B]">应用模块</div>
+            <div className="flex flex-row">
+                <div
+                    style={{
+                        boxShadow: '8px 12px 0px 0px rgba(235, 234, 255, 1)',
+                    }}
+                    className="mr-6 w-[550px] h-[540px] rounded-[32px] border border-[#6B6395]"></div>
+                <div className="flex flex-col">
+                    {AppModuleData.map(({ title }, index) => {
+                        const isFocus = moduleIndex === index;
+                        return (
+                            <div
+                                key={index}
+                                onClick={() => setIndex(index)}
+                                style={{
+                                    boxShadow: '6px 8px 0px 0px rgba(235, 234, 255, 1)',
+                                }}
+                                className={`${
+                                    isFocus ? 'bg-[#6953EF] text-[#FAFAFF]' : 'text-[#473E6B]'
+                                } first:mt-0 mt-6 w-[168px] h-[148px] flex items-center justify-center text-xl text-center whitespace-pre-line font-semibold rounded-3xl border border-[#483E6B]`}>
+                                {title}
+                            </div>
+                        );
+                    })}
+                </div>
+            </div>
+        </div>
+    );
+}
+
+function Partner() {
+    return (
+        <div className="flex flex-col items-center pt-18 pb-23 bg-[#EEE3FD]">
+            <div className="text-[38px] leading-[48px] text-[#473E6B]">合作伙伴</div>
+            <div className="mt-12 flex flex-row">
+                <div className="first:ml-0 ml-12 w-60 h-20 flex items-center justify-center rounded-xl border border-[#483E6B]">
+                    <Image src="/images/conflux.svg" alt="conflux" width={148} height={36} />
+                </div>
+                <div className="first:ml-0 ml-12 w-60 h-20 flex items-center justify-center rounded-xl border border-[#483E6B]">
+                    <Image src="/images/anyweb.svg" alt="anyweb" width={144} height={36} />
+                </div>
+                <div className="first:ml-0 ml-12 w-60 h-20 flex items-center justify-center rounded-xl border border-[#483E6B]">
+                    <Image src="/images/cellar.svg" alt="cellar" width={111} height={36} />
+                </div>
+            </div>
+        </div>
+    );
+}
+
 export default function Index() {
     return (
         <div className="flex flex-col">
             <Menu />
             <Banner />
+            <AppModule />
+            <Partner />
             <Footer />
         </div>
     );

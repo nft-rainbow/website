@@ -9,7 +9,9 @@ export default function App({ Component, pageProps }: AppProps) {
                 <title>NFTRainbow - One Stop NFT Infrastructure & Service</title>
                 <link rel="shortcut icon" href="/images/logo.svg" type="image/svg+xml"></link>
             </Head>
-            <Component {...pageProps} />
+            <div className="m-w-[1440px]">
+                <Component {...pageProps} />
+            </div>
         </>
     );
 }
